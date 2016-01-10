@@ -16,8 +16,13 @@ let BarHeight = UIApplication.sharedApplication().statusBarFrame.height
 
 struct CellReuseIdentifier {
     static let Home = "HomeCell"
+    static let Answer = "AnswerCell"
 }
 
 struct API {
     static let Home = "http://api.kanzhihu.com/getposts"
+    
+    static let AnswerList = "http://api.kanzhihu.com/getpostanswers/"
+    
+    static let Article = "http://www.zhihu.com/question/"
 }

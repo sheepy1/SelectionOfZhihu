@@ -10,30 +10,27 @@ import UIKit
 
 class HomeCell: UITableViewCell {
     
-    @IBOutlet weak var iconsImage: UIImageView!
+    @IBOutlet weak var avatarsImageView: UIImageView!
     
-    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var summaryLabel: UILabel!
     
     @IBOutlet weak var categoryLabel: UILabel!
    
     @IBOutlet weak var timeLabel: UILabel!
     
+    let categoryDict = [
+        "archive": "历史精华",
+        "recent": "近日热门",
+        "yesterday": "昨日最新"
+    ]
+    
     func bindModel(model: HomeCellModel) {
         tag = model.id
-        iconsImage.setImageWithId(tag, imagePath: model.pic)
+        avatarsImageView.setImageWithId(tag, imagePath: model.pic)
         
-        descTextView.text = model.excerpt
+        summaryLabel.text = model.excerpt
         
-        switch model.name {
-        case "archive":
-            categoryLabel.text = "历史精华"
-        case "recent":
-            categoryLabel.text = "近日热门"
-        case "yesterday":
-            categoryLabel.text = "昨日最新"
-        default:
-            break
-        }
+        categoryLabel.text = categoryDict[model.name]
         
         timeLabel.text = "\(model.date)"
     }

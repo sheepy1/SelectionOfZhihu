@@ -14,6 +14,11 @@
 		20BCFCCD1C416D470006B4CD /* HomeJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCFCCC1C416D470006B4CD /* HomeJSONModel.swift */; };
 		20BCFCCF1C416F320006B4CD /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCFCCE1C416F320006B4CD /* HomeCell.swift */; };
 		20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCFCD21C4173A60006B4CD /* ImageDownloadHelper.swift */; };
+		20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7948D1C420FE2005456A0 /* AnswerListViewController.swift */; };
+		20C794901C42103C005456A0 /* AnswerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7948F1C42103C005456A0 /* AnswerListModel.swift */; };
+		20C794921C42111F005456A0 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C794911C42111F005456A0 /* AnswerModel.swift */; };
+		20C794941C42264C005456A0 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C794931C42264C005456A0 /* AnswerCell.swift */; };
+		20C794981C425229005456A0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C794971C425229005456A0 /* ArticleViewController.swift */; };
 		20DA2A671C29962C00F4E46D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA2A661C29962C00F4E46D /* AppDelegate.swift */; };
 		20DA2A6E1C29962C00F4E46D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20DA2A6D1C29962C00F4E46D /* Assets.xcassets */; };
 		20DA2A711C29962C00F4E46D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20DA2A6F1C29962C00F4E46D /* LaunchScreen.storyboard */; };
@@ -49,6 +54,11 @@
 		20BCFCCC1C416D470006B4CD /* HomeJSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeJSONModel.swift; sourceTree = "<group>"; };
 		20BCFCCE1C416F320006B4CD /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		20BCFCD21C4173A60006B4CD /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
+		20C7948D1C420FE2005456A0 /* AnswerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerListViewController.swift; sourceTree = "<group>"; };
+		20C7948F1C42103C005456A0 /* AnswerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerListModel.swift; sourceTree = "<group>"; };
+		20C794911C42111F005456A0 /* AnswerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
+		20C794931C42264C005456A0 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
+		20C794971C425229005456A0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		20DA2A631C29962C00F4E46D /* SelectionOfZhihu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectionOfZhihu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA2A661C29962C00F4E46D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20DA2A6D1C29962C00F4E46D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				20E1F7A61C4165AA0086F298 /* HomeViewController.swift */,
+				20C7948D1C420FE2005456A0 /* AnswerListViewController.swift */,
+				20C794971C425229005456A0 /* ArticleViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -103,6 +115,8 @@
 			children = (
 				20BCFCCA1C416C980006B4CD /* HomeCellModel.swift */,
 				20BCFCCC1C416D470006B4CD /* HomeJSONModel.swift */,
+				20C7948F1C42103C005456A0 /* AnswerListModel.swift */,
+				20C794911C42111F005456A0 /* AnswerModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -219,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				20BCFCCE1C416F320006B4CD /* HomeCell.swift */,
+				20C794931C42264C005456A0 /* AnswerCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -355,13 +370,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				20DA2A671C29962C00F4E46D /* AppDelegate.swift in Sources */,
+				20C794921C42111F005456A0 /* AnswerModel.swift in Sources */,
+				20C794901C42103C005456A0 /* AnswerListModel.swift in Sources */,
 				20762AEA1C2B7B4B0008A00D /* Util.swift in Sources */,
 				20BCFCCD1C416D470006B4CD /* HomeJSONModel.swift in Sources */,
 				20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */,
 				20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */,
+				20C794981C425229005456A0 /* ArticleViewController.swift in Sources */,
+				20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */,
 				20DA2A981C29A34700F4E46D /* Constant.swift in Sources */,
 				20BCFCCB1C416C980006B4CD /* HomeCellModel.swift in Sources */,
 				20B0ED2A1C2A346800C3DDC5 /* HTTPManager.swift in Sources */,
+				20C794941C42264C005456A0 /* AnswerCell.swift in Sources */,
 				20BCFCCF1C416F320006B4CD /* HomeCell.swift in Sources */,
 				20E1F7A71C4165AA0086F298 /* HomeViewController.swift in Sources */,
 			);

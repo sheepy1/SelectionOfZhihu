@@ -32,7 +32,7 @@ class HomeViewController: UITableViewController {
     }
     
     func getData() {
-        getDataFromUrl(API.Home, method: HTTPMethod.GET, parameter: nil) { (data, error) -> () in
+        getDataFromUrl(API.Home, method: .GET, parameter: nil) { data, error in
 
             if let httpError = error {
                 print(httpError)
@@ -43,9 +43,17 @@ class HomeViewController: UITableViewController {
             }
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let answerListController = segue.destinationViewController as? AnswerListViewController, index = tableView.indexPathForSelectedRow?.section {
+            let model = cellModelList[index]
+            let date = "\(model.date)".stringByReplacingOccurrencesOfString("-", withString: "")
+            answerListController.url = API.AnswerList + date + "/" + model.name
+        }
+    }
 }
 
-//MARK: - Home Data Source
+//MARK: - TableView Data Source
 extension HomeViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return cellModelList.count
