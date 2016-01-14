@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D8D1C469C0F00591A0B /* TopUserModel.swift */; };
+		20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D901C469EBE00591A0B /* TopUserCell.swift */; };
+		20678D931C472ACF00591A0B /* UserJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D921C472ACF00591A0B /* UserJSONModel.swift */; };
+		20678D951C47B92600591A0B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D941C47B92600591A0B /* UserCell.swift */; };
 		20762AEA1C2B7B4B0008A00D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20762AE91C2B7B4B0008A00D /* Util.swift */; };
 		20B0ED2A1C2A346800C3DDC5 /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B0ED291C2A346800C3DDC5 /* HTTPManager.swift */; };
 		20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B0ED2B1C2A350400C3DDC5 /* JSONModelMapper.swift */; };
@@ -14,6 +18,7 @@
 		20BCFCCD1C416D470006B4CD /* HomeJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCFCCC1C416D470006B4CD /* HomeJSONModel.swift */; };
 		20BCFCCF1C416F320006B4CD /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCFCCE1C416F320006B4CD /* HomeCell.swift */; };
 		20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCFCD21C4173A60006B4CD /* ImageDownloadHelper.swift */; };
+		20C3F5E21C43A174007B41E7 /* TopUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3F5E11C43A174007B41E7 /* TopUserViewController.swift */; };
 		20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7948D1C420FE2005456A0 /* AnswerListViewController.swift */; };
 		20C794901C42103C005456A0 /* AnswerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7948F1C42103C005456A0 /* AnswerListModel.swift */; };
 		20C794921C42111F005456A0 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C794911C42111F005456A0 /* AnswerModel.swift */; };
@@ -47,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20678D8D1C469C0F00591A0B /* TopUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserModel.swift; sourceTree = "<group>"; };
+		20678D901C469EBE00591A0B /* TopUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserCell.swift; sourceTree = "<group>"; };
+		20678D921C472ACF00591A0B /* UserJSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJSONModel.swift; sourceTree = "<group>"; };
+		20678D941C47B92600591A0B /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		20762AE91C2B7B4B0008A00D /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		20B0ED291C2A346800C3DDC5 /* HTTPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
 		20B0ED2B1C2A350400C3DDC5 /* JSONModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelMapper.swift; sourceTree = "<group>"; };
@@ -54,6 +63,7 @@
 		20BCFCCC1C416D470006B4CD /* HomeJSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeJSONModel.swift; sourceTree = "<group>"; };
 		20BCFCCE1C416F320006B4CD /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		20BCFCD21C4173A60006B4CD /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
+		20C3F5E11C43A174007B41E7 /* TopUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserViewController.swift; sourceTree = "<group>"; };
 		20C7948D1C420FE2005456A0 /* AnswerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerListViewController.swift; sourceTree = "<group>"; };
 		20C7948F1C42103C005456A0 /* AnswerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerListModel.swift; sourceTree = "<group>"; };
 		20C794911C42111F005456A0 /* AnswerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
@@ -100,6 +110,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20678D8B1C469B9400591A0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				20C3F5E11C43A174007B41E7 /* TopUserViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		20678D8C1C469BD800591A0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20678D8D1C469C0F00591A0B /* TopUserModel.swift */,
+				20678D921C472ACF00591A0B /* UserJSONModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		20678D8F1C469EB100591A0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20678D901C469EBE00591A0B /* TopUserCell.swift */,
+				20678D941C47B92600591A0B /* UserCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		20B0ED221C2A32DD00C3DDC5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +185,16 @@
 			path = SelectionOfZhihu;
 			sourceTree = "<group>";
 		};
+		20C3F5E01C43A0CF007B41E7 /* TopUsers */ = {
+			isa = PBXGroup;
+			children = (
+				20678D8F1C469EB100591A0B /* View */,
+				20678D8C1C469BD800591A0B /* Model */,
+				20678D8B1C469B9400591A0B /* Controller */,
+			);
+			name = TopUsers;
+			sourceTree = "<group>";
+		};
 		20DA2A5A1C29962C00F4E46D = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				20E1F7A11C4163DE0086F298 /* Home */,
+				20C3F5E01C43A0CF007B41E7 /* TopUsers */,
 				20E1F7A21C4164010086F298 /* Storyboard */,
 				20B0ED261C2A337000C3DDC5 /* AppDelegate */,
 				20B0ED271C2A33B000C3DDC5 /* Global */,
@@ -376,10 +423,15 @@
 				20BCFCCD1C416D470006B4CD /* HomeJSONModel.swift in Sources */,
 				20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */,
 				20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */,
+				20C3F5E21C43A174007B41E7 /* TopUserViewController.swift in Sources */,
+				20678D951C47B92600591A0B /* UserCell.swift in Sources */,
+				20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */,
 				20C794981C425229005456A0 /* ArticleViewController.swift in Sources */,
 				20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */,
 				20DA2A981C29A34700F4E46D /* Constant.swift in Sources */,
+				20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */,
 				20BCFCCB1C416C980006B4CD /* HomeCellModel.swift in Sources */,
+				20678D931C472ACF00591A0B /* UserJSONModel.swift in Sources */,
 				20B0ED2A1C2A346800C3DDC5 /* HTTPManager.swift in Sources */,
 				20C794941C42264C005456A0 /* AnswerCell.swift in Sources */,
 				20BCFCCF1C416F320006B4CD /* HomeCell.swift in Sources */,

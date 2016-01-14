@@ -17,7 +17,6 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
-    
     var urlString: String!
     
     var navigationTitle: String! {

@@ -25,8 +25,7 @@ class HomeCell: UITableViewCell {
     ]
     
     func bindModel(model: HomeCellModel) {
-        tag = model.id
-        avatarsImageView.setImageWithId(tag, imagePath: model.pic)
+        avatarsImageView.setImageWithId(model.id, imagePath: model.pic)
         
         summaryLabel.text = model.excerpt
         

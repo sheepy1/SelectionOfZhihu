@@ -30,7 +30,7 @@ func loadImageFrom(imagePath: String,flag: Int = -1, completion: (image: UIImage
                 return
             }
             imageCache.setObject(data, forKey: imageUrl)
-            dispatch_async(dispatch_get_main_queue()) {
+            dispatch_async(dispatch_get_main_queue()) {                                                                                                                                                         
                 completion(image: UIImage(data: data), flag: flag)
             }
         }
@@ -47,7 +47,6 @@ extension UIImageView {
         }
         self.tag = id
         loadImageFrom(imagePath, flag: id) { image, flag in
-            //imagePath是被捕获的自由变量，其指针指向最新的值
             if flag == self.tag {
                 self.image = image
             }

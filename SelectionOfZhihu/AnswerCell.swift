@@ -21,8 +21,7 @@ class AnswerCell: UITableViewCell {
     @IBOutlet weak var summaryLabel: UILabel!
     
     func bindModel(model: AnswerModel, withIndex index: Int) {
-        tag = index
-        avatarImageView.setImageWithId(tag, imagePath: model.avatar)
+        avatarImageView.setImageWithId(index, imagePath: model.avatar)
         
         authorNameLabel.text = model.authorname
         
