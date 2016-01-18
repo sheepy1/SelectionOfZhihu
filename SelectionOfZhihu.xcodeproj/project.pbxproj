@@ -35,7 +35,6 @@
 		20E1F7A71C4165AA0086F298 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E1F7A61C4165AA0086F298 /* HomeViewController.swift */; };
 		20E7D4C21C4AC27500C082BB /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4C11C4AC27500C082BB /* Protocol.swift */; };
 		20E7D4C41C4AC28000C082BB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4C31C4AC28000C082BB /* Extension.swift */; };
-		20E7D4C61C4AC8D100C082BB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4C51C4AC8D100C082BB /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		20E1F7A61C4165AA0086F298 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20E7D4C11C4AC27500C082BB /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		20E7D4C31C4AC28000C082BB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		20E7D4C51C4AC8D100C082BB /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +175,6 @@
 		20B0ED271C2A33B000C3DDC5 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				20E7D4C51C4AC8D100C082BB /* SwiftyJSON.swift */,
 				20DA2A971C29A34700F4E46D /* Constant.swift */,
 				20B0ED291C2A346800C3DDC5 /* HTTPManager.swift */,
 				20B0ED2B1C2A350400C3DDC5 /* JSONModelMapper.swift */,
@@ -436,7 +433,6 @@
 				20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */,
 				20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */,
 				20C3F5E21C43A174007B41E7 /* TopUserViewController.swift in Sources */,
-				20E7D4C61C4AC8D100C082BB /* SwiftyJSON.swift in Sources */,
 				20678D951C47B92600591A0B /* UserCell.swift in Sources */,
 				20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */,
 				20C794981C425229005456A0 /* ArticleViewController.swift in Sources */,
