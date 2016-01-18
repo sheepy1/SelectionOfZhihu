@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeCell: UITableViewCell {
+class HomeCell: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var avatarsImageView: UIImageView!
     

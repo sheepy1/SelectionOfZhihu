@@ -47,6 +47,16 @@ class UserCell: UITableViewCell {
         
         followCount.text = "\(model.agree)"
     }
+    
+    func bindModel(model: JSON, withIndex index: Int) {
+        avatarImageView.setImageWithId(index, imagePath: model["avatar"].stringValue)
+        
+        nameLabel.text = model["name"].stringValue
+        
+        signatureLabel.text = model["signature"].stringValue
+        
+        followCount.text = "\(model["agree"].intValue)"
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

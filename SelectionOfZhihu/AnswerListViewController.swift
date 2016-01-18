@@ -52,7 +52,7 @@ class AnswerListViewController: UITableViewController {
     
 }
 
-//MARK: - TableView Data Source
+// MARK: - TableView Data Source
 extension AnswerListViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -65,7 +65,7 @@ extension AnswerListViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.Answer) as! AnswerCell
         let index = indexPath.row
-        cell.bindModel(answerList[index], withIndex: index)
+        cell.bindModel(answerList[index], withImageIndex: index)
         
         return cell
     }

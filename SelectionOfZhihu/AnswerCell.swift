@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnswerCell: UITableViewCell {
+class AnswerCell: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     
@@ -20,9 +20,7 @@ class AnswerCell: UITableViewCell {
     
     @IBOutlet weak var summaryLabel: UILabel!
     
-    func bindModel(model: AnswerModel, withIndex index: Int) {
-        avatarImageView.setImageWithId(index, imagePath: model.avatar)
-        
+    func bindModel(model: AnswerModel) {
         authorNameLabel.text = model.authorname
         
         voteLabel.text = "\(model.vote)"
@@ -30,5 +28,11 @@ class AnswerCell: UITableViewCell {
         titleLabel.text = model.title
         
         summaryLabel.text = model.summary
+    }
+    
+    func bindModel(model: AnswerModel, withImageIndex index: Int) {
+        avatarImageView.setImageWithId(index, imagePath: model.avatar)
+        
+        bindModel(model)
     }
 }

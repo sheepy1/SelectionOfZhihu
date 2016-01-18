@@ -21,6 +21,11 @@ struct CellReuseIdentifier {
     static let User = "UserCell"
 }
 
+struct SegueId {
+    static let PopoverSortOrderMenu = "PopoverSortOrderMenu"
+    static let SelectedTableItem = "SelectedTableItem"
+}
+
 struct API {
     static let Home = "http://api.kanzhihu.com/getposts"
     

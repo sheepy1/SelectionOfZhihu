@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2036DBB11C4B7E2300E1F8C6 /* SortOrderMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */; };
 		20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D8D1C469C0F00591A0B /* TopUserModel.swift */; };
 		20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D901C469EBE00591A0B /* TopUserCell.swift */; };
 		20678D931C472ACF00591A0B /* UserJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D921C472ACF00591A0B /* UserJSONModel.swift */; };
@@ -32,6 +33,9 @@
 		20DA2A981C29A34700F4E46D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA2A971C29A34700F4E46D /* Constant.swift */; };
 		20E1F7A51C4164410086F298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20E1F7A41C4164410086F298 /* Main.storyboard */; };
 		20E1F7A71C4165AA0086F298 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E1F7A61C4165AA0086F298 /* HomeViewController.swift */; };
+		20E7D4C21C4AC27500C082BB /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4C11C4AC27500C082BB /* Protocol.swift */; };
+		20E7D4C41C4AC28000C082BB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4C31C4AC28000C082BB /* Extension.swift */; };
+		20E7D4C61C4AC8D100C082BB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4C51C4AC8D100C082BB /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortOrderMenuController.swift; sourceTree = "<group>"; };
 		20678D8D1C469C0F00591A0B /* TopUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserModel.swift; sourceTree = "<group>"; };
 		20678D901C469EBE00591A0B /* TopUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserCell.swift; sourceTree = "<group>"; };
 		20678D921C472ACF00591A0B /* UserJSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJSONModel.swift; sourceTree = "<group>"; };
@@ -83,6 +88,9 @@
 		20DA2A971C29A34700F4E46D /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		20E1F7A41C4164410086F298 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		20E1F7A61C4165AA0086F298 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		20E7D4C11C4AC27500C082BB /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		20E7D4C31C4AC28000C082BB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		20E7D4C51C4AC8D100C082BB /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				20C3F5E11C43A174007B41E7 /* TopUserViewController.swift */,
+				2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -127,13 +136,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		20678D8F1C469EB100591A0B /* View */ = {
+		20678D8F1C469EB100591A0B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				20678D901C469EBE00591A0B /* TopUserCell.swift */,
 				20678D941C47B92600591A0B /* UserCell.swift */,
 			);
-			name = View;
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		20B0ED221C2A32DD00C3DDC5 /* Controller */ = {
@@ -168,11 +177,14 @@
 		20B0ED271C2A33B000C3DDC5 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				20E7D4C51C4AC8D100C082BB /* SwiftyJSON.swift */,
 				20DA2A971C29A34700F4E46D /* Constant.swift */,
 				20B0ED291C2A346800C3DDC5 /* HTTPManager.swift */,
 				20B0ED2B1C2A350400C3DDC5 /* JSONModelMapper.swift */,
 				20762AE91C2B7B4B0008A00D /* Util.swift */,
 				20BCFCD21C4173A60006B4CD /* ImageDownloadHelper.swift */,
+				20E7D4C11C4AC27500C082BB /* Protocol.swift */,
+				20E7D4C31C4AC28000C082BB /* Extension.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -188,7 +200,7 @@
 		20C3F5E01C43A0CF007B41E7 /* TopUsers */ = {
 			isa = PBXGroup;
 			children = (
-				20678D8F1C469EB100591A0B /* View */,
+				20678D8F1C469EB100591A0B /* ViewModel */,
 				20678D8C1C469BD800591A0B /* Model */,
 				20678D8B1C469B9400591A0B /* Controller */,
 			);
@@ -261,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				20B0ED221C2A32DD00C3DDC5 /* Controller */,
-				20E1F7A31C41641A0086F298 /* View */,
+				20E1F7A31C41641A0086F298 /* ViewModel */,
 				20B0ED241C2A32F000C3DDC5 /* Model */,
 			);
 			name = Home;
@@ -276,13 +288,13 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
-		20E1F7A31C41641A0086F298 /* View */ = {
+		20E1F7A31C41641A0086F298 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				20BCFCCE1C416F320006B4CD /* HomeCell.swift */,
 				20C794931C42264C005456A0 /* AnswerCell.swift */,
 			);
-			name = View;
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +436,7 @@
 				20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */,
 				20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */,
 				20C3F5E21C43A174007B41E7 /* TopUserViewController.swift in Sources */,
+				20E7D4C61C4AC8D100C082BB /* SwiftyJSON.swift in Sources */,
 				20678D951C47B92600591A0B /* UserCell.swift in Sources */,
 				20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */,
 				20C794981C425229005456A0 /* ArticleViewController.swift in Sources */,
@@ -431,9 +444,12 @@
 				20DA2A981C29A34700F4E46D /* Constant.swift in Sources */,
 				20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */,
 				20BCFCCB1C416C980006B4CD /* HomeCellModel.swift in Sources */,
+				20E7D4C41C4AC28000C082BB /* Extension.swift in Sources */,
 				20678D931C472ACF00591A0B /* UserJSONModel.swift in Sources */,
 				20B0ED2A1C2A346800C3DDC5 /* HTTPManager.swift in Sources */,
+				20E7D4C21C4AC27500C082BB /* Protocol.swift in Sources */,
 				20C794941C42264C005456A0 /* AnswerCell.swift in Sources */,
+				2036DBB11C4B7E2300E1F8C6 /* SortOrderMenuController.swift in Sources */,
 				20BCFCCF1C416F320006B4CD /* HomeCell.swift in Sources */,
 				20E1F7A71C4165AA0086F298 /* HomeViewController.swift in Sources */,
 			);
