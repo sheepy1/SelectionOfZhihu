@@ -24,14 +24,20 @@ struct CellReuseIdentifier {
 struct SegueId {
     static let PopoverSortOrderMenu = "PopoverSortOrderMenu"
     static let SelectedTableItem = "SelectedTableItem"
+    static let UserDetail = "UserDetail"
 }
 
 struct API {
-    static let Home = "http://api.kanzhihu.com/getposts"
+    static let APIHost = "http://api.kanzhihu.com/"
+    static let ArticleHost = "http://www.zhihu.com/"
     
-    static let AnswerList = "http://api.kanzhihu.com/getpostanswers/"
+    static let Home = APIHost + "getposts"
     
-    static let Article = "http://www.zhihu.com/question/"
+    static let AnswerList = APIHost + "getpostanswers/"
     
-    static let TopUser = "http://api.kanzhihu.com/topuser/agree/"
+    static let Article = ArticleHost + "question/"
+    
+    static let TopUser = APIHost + "topuser/agree/"
+    
+    static let UserDetail = APIHost + "userdetail2/"
 }

@@ -30,7 +30,7 @@ class HomeCell: UITableViewCell, ViewModelType {
         summaryLabel.text = model.excerpt
         
         categoryLabel.text = categoryDict[model.name]
-        
+       
         timeLabel.text = "\(model.date)"
     }
     

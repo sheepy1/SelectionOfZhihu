@@ -16,29 +16,18 @@ class AnswerListViewController: UITableViewController {
         }
     }
     
-    var jsonModel: AnswerListModel! {
+    var answerList = [AnswerModel]() {
         didSet {
-            jsonModel.answers.forEach {
-                if let answer = $0 => AnswerModel.self {
-                    answerList.append(answer)
-                }
-            }
-            
             tableView.reloadData()
         }
     }
     
-    lazy var answerList = [AnswerModel]()
-    
     func getData() {
-        getDataFromUrl(url, method: .GET, parameter: nil) { data, error in
-            if let e = error {
-                printLog(e)
-                return
-            }
-            
+        getDataFromUrl(url, method: .GET, parameter: nil) { data in
             if let d = data, jsonModel = d => AnswerListModel.self {
-                self.jsonModel = jsonModel
+                self.answerList = jsonModel.answers.flatMap {
+                    $0 => AnswerModel.self
+                }
             }
         }
     }
@@ -59,7 +48,7 @@ extension AnswerListViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answerList.count
+        return answerList.count 
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -9,20 +9,12 @@
 import UIKit
 
 class TopUserViewController: UITableViewController {
-
-    var jsonModel: UserJSONModel! {
+    
+    var cellModelList = [TopUserModel]() {
         didSet {
-            jsonModel.topuser.forEach {
-                if let model = $0 => TopUserModel.self {
-                    self.cellModelList.append(model)
-                }
-            }
-            
             tableView.reloadData()
         }
     }
-    
-    lazy var cellModelList = [TopUserModel]()
     
 //    var jsonModelList = [JSON]() {
 //        didSet {
@@ -37,14 +29,11 @@ class TopUserViewController: UITableViewController {
     }
     
     func getData() {
-        getDataFromUrl(API.TopUser, method: .GET, parameter: nil) { data, error in
-            if let e = error {
-                print(e)
-                return
-            }
-            
+        getDataFromUrl(API.TopUser, method: .GET, parameter: nil) { data in
             if let jsonData = data, model = jsonData => UserJSONModel.self {
-                self.jsonModel = model
+                self.cellModelList = model.topuser.flatMap {
+                    $0 => TopUserModel.self
+                }
             }
 //            if let jsonData = data {
 //                let json = JSON(data: jsonData).dictionaryValue
@@ -54,9 +43,19 @@ class TopUserViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let id = segue.identifier, case id = SegueId.PopoverSortOrderMenu {
+        guard let id = segue.identifier else {
+            return
+        }
+        switch id {
+        case SegueId.PopoverSortOrderMenu:
             let menuController = segue.destinationViewController
             menuController.popoverPresentationController?.delegate = self
+        case SegueId.UserDetail:
+            let userDetailController = segue.destinationViewController as! UserDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow!.row
+            userDetailController.userHash = cellModelList[selectedIndex].userHash
+        default:
+            break
         }
     }
     
@@ -68,22 +67,22 @@ class TopUserViewController: UITableViewController {
     }
 }
 
-//MARK: - TableView Data Source
+// MARK: - TableView Data Source
 extension TopUserViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellModelList.count
+        return cellModelList.count 
 //        return jsonModelList.count
-//        return 100
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.User) as! TopUserCell
         let index = indexPath.row
         cell.bindModel(cellModelList[index], withImageIndex: index)
+    
 //        cell.bindModel(jsonModelList[index], withIndex: index)
         return cell
     }

@@ -20,7 +20,7 @@ enum HTTPMethod: String {
     case DELETE = "DELETE"
 }
 
-typealias CompletionHandler = (data: NSData?, error: NSError?) -> ()
+typealias CompletionHandler = (data: NSData?) -> ()
 
 func getDataFromUrl(urlString: String, method: HTTPMethod, parameter: [String: AnyObject]?, completionHandler: CompletionHandler) -> NSURLSessionDataTask? {
     guard let url = NSURL(string: urlString) else {
@@ -47,7 +47,11 @@ func getDataFromUrl(urlString: String, method: HTTPMethod, parameter: [String: A
     let task = session.dataTaskWithRequest(request) {data, response, error in
         //NSSession会默认开启一个后台队列，所以UI操作要调度回主队列进行。
         dispatch_async(dispatch_get_main_queue()) {
-            completionHandler(data: data, error: error)
+            if let e = error {
+                print(e)
+                return
+            }
+            completionHandler(data: data)
         }
     }
     //启动

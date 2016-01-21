@@ -12,7 +12,7 @@ class TopUserModel: NSObject {
     var id = ""
     var agree = 0
     var name = ""
-    //var hash = ""
+    var userHash = ""
     var avatar = ""
     var signature = ""
 }

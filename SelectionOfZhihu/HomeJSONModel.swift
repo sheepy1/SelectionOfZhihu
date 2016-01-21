@@ -11,5 +11,6 @@ import Foundation
 class HomeJSONModel: NSObject {
     var error = ""
     var count = 0
+    //因为通过反射设置的值只能是 NSObject 的子类，如果定义[Post]的话，取元素的时候会报错（因为 NSArray 的元素是 AnyObject 类型，不会自动转化成 Post
     var posts = []
 }

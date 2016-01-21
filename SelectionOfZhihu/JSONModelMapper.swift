@@ -25,19 +25,33 @@ extension NSData {
     }
 }
 
+//不能扩展特定的范型类型！！！
 extension Dictionary {
     func convertToModel<T: NSObject>() -> T {
         let model = T()
         let mirror = Mirror(reflecting: model)
         
         mirror.children.forEach {
-            if let key = $0.0 as? Key, value = self[key] {
-                model.setValue(value as? AnyObject, forKey: $0.0!)
+            guard let key = $0.label else { return }
+            var value: Value!
+            if self[key as! Key] == nil {
+                switch key {
+                case "userHash":
+                    value = self["hash" as! Key]
+                case "desc":
+                    value = self["description" as! Key]
+                default:
+                    break
+                }
+            } else {
+                value = self[key as! Key]
             }
+            model.setValue(value as? AnyObject, forKey: key)
         }
         
         return model
     }
+    
 }
 
 extension NSObject {

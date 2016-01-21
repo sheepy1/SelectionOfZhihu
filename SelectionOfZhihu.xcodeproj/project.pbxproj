@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2003C7281C4EA41F00E207FA /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C7271C4EA41F00E207FA /* UserDetailViewController.swift */; };
+		2003C72A1C4EA96B00E207FA /* UserInfol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C7291C4EA96B00E207FA /* UserInfol.swift */; };
+		2003C72C1C4EA9FC00E207FA /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C72B1C4EA9FC00E207FA /* UserDetail.swift */; };
+		2032EE2E1C51213400646D8E /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2D1C51213400646D8E /* Star.swift */; };
+		2032EE301C51246D00646D8E /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2F1C51246D00646D8E /* Trend.swift */; };
+		2032EE321C51257200646D8E /* TopAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE311C51257200646D8E /* TopAnswer.swift */; };
 		2036DBB11C4B7E2300E1F8C6 /* SortOrderMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */; };
 		20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D8D1C469C0F00591A0B /* TopUserModel.swift */; };
 		20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D901C469EBE00591A0B /* TopUserCell.swift */; };
@@ -55,6 +61,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2003C7271C4EA41F00E207FA /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		2003C7291C4EA96B00E207FA /* UserInfol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfol.swift; sourceTree = "<group>"; };
+		2003C72B1C4EA9FC00E207FA /* UserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		2032EE2D1C51213400646D8E /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		2032EE2F1C51246D00646D8E /* Trend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
+		2032EE311C51257200646D8E /* TopAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopAnswer.swift; sourceTree = "<group>"; };
 		2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortOrderMenuController.swift; sourceTree = "<group>"; };
 		20678D8D1C469C0F00591A0B /* TopUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserModel.swift; sourceTree = "<group>"; };
 		20678D901C469EBE00591A0B /* TopUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserCell.swift; sourceTree = "<group>"; };
@@ -121,6 +133,7 @@
 			children = (
 				20C3F5E11C43A174007B41E7 /* TopUserViewController.swift */,
 				2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */,
+				2003C7271C4EA41F00E207FA /* UserDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -130,6 +143,11 @@
 			children = (
 				20678D8D1C469C0F00591A0B /* TopUserModel.swift */,
 				20678D921C472ACF00591A0B /* UserJSONModel.swift */,
+				2003C7291C4EA96B00E207FA /* UserInfol.swift */,
+				2003C72B1C4EA9FC00E207FA /* UserDetail.swift */,
+				2032EE2D1C51213400646D8E /* Star.swift */,
+				2032EE2F1C51246D00646D8E /* Trend.swift */,
+				2032EE311C51257200646D8E /* TopAnswer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -197,9 +215,9 @@
 		20C3F5E01C43A0CF007B41E7 /* TopUsers */ = {
 			isa = PBXGroup;
 			children = (
+				20678D8B1C469B9400591A0B /* Controller */,
 				20678D8F1C469EB100591A0B /* ViewModel */,
 				20678D8C1C469BD800591A0B /* Model */,
-				20678D8B1C469B9400591A0B /* Controller */,
 			);
 			name = TopUsers;
 			sourceTree = "<group>";
@@ -427,16 +445,21 @@
 			files = (
 				20DA2A671C29962C00F4E46D /* AppDelegate.swift in Sources */,
 				20C794921C42111F005456A0 /* AnswerModel.swift in Sources */,
+				2003C7281C4EA41F00E207FA /* UserDetailViewController.swift in Sources */,
+				2032EE301C51246D00646D8E /* Trend.swift in Sources */,
 				20C794901C42103C005456A0 /* AnswerListModel.swift in Sources */,
 				20762AEA1C2B7B4B0008A00D /* Util.swift in Sources */,
 				20BCFCCD1C416D470006B4CD /* HomeJSONModel.swift in Sources */,
 				20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */,
+				2003C72C1C4EA9FC00E207FA /* UserDetail.swift in Sources */,
 				20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */,
+				2032EE2E1C51213400646D8E /* Star.swift in Sources */,
 				20C3F5E21C43A174007B41E7 /* TopUserViewController.swift in Sources */,
 				20678D951C47B92600591A0B /* UserCell.swift in Sources */,
 				20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */,
 				20C794981C425229005456A0 /* ArticleViewController.swift in Sources */,
 				20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */,
+				2003C72A1C4EA96B00E207FA /* UserInfol.swift in Sources */,
 				20DA2A981C29A34700F4E46D /* Constant.swift in Sources */,
 				20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */,
 				20BCFCCB1C416C980006B4CD /* HomeCellModel.swift in Sources */,
@@ -447,6 +470,7 @@
 				20C794941C42264C005456A0 /* AnswerCell.swift in Sources */,
 				2036DBB11C4B7E2300E1F8C6 /* SortOrderMenuController.swift in Sources */,
 				20BCFCCF1C416F320006B4CD /* HomeCell.swift in Sources */,
+				2032EE321C51257200646D8E /* TopAnswer.swift in Sources */,
 				20E1F7A71C4165AA0086F298 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

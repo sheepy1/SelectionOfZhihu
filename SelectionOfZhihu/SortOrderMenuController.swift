@@ -18,7 +18,7 @@ class SortOrderMenuController: UITableViewController {
         case 0:
             sortOrder = ("按赞同数", "agree")
         case 1:
-            sortOrder = ("按关注数", "follow")
+            sortOrder = ("按粉丝数", "follow")
         default:
             break
         }
