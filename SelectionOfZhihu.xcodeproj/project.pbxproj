@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200313721C53992200DF14E8 /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200313711C53992200DF14E8 /* UserInfoHeader.swift */; };
+		200313741C53F37400DF14E8 /* UserMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200313731C53F37400DF14E8 /* UserMenu.swift */; };
 		2003C7281C4EA41F00E207FA /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C7271C4EA41F00E207FA /* UserDetailViewController.swift */; };
-		2003C72A1C4EA96B00E207FA /* UserInfol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C7291C4EA96B00E207FA /* UserInfol.swift */; };
+		2003C72A1C4EA96B00E207FA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C7291C4EA96B00E207FA /* UserInfo.swift */; };
 		2003C72C1C4EA9FC00E207FA /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C72B1C4EA9FC00E207FA /* UserDetail.swift */; };
 		2032EE2E1C51213400646D8E /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2D1C51213400646D8E /* Star.swift */; };
 		2032EE301C51246D00646D8E /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2F1C51246D00646D8E /* Trend.swift */; };
@@ -61,8 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		200313711C53992200DF14E8 /* UserInfoHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
+		200313731C53F37400DF14E8 /* UserMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenu.swift; sourceTree = "<group>"; };
 		2003C7271C4EA41F00E207FA /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
-		2003C7291C4EA96B00E207FA /* UserInfol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfol.swift; sourceTree = "<group>"; };
+		2003C7291C4EA96B00E207FA /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		2003C72B1C4EA9FC00E207FA /* UserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		2032EE2D1C51213400646D8E /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		2032EE2F1C51246D00646D8E /* Trend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
@@ -143,7 +147,7 @@
 			children = (
 				20678D8D1C469C0F00591A0B /* TopUserModel.swift */,
 				20678D921C472ACF00591A0B /* UserJSONModel.swift */,
-				2003C7291C4EA96B00E207FA /* UserInfol.swift */,
+				2003C7291C4EA96B00E207FA /* UserInfo.swift */,
 				2003C72B1C4EA9FC00E207FA /* UserDetail.swift */,
 				2032EE2D1C51213400646D8E /* Star.swift */,
 				2032EE2F1C51246D00646D8E /* Trend.swift */,
@@ -157,6 +161,8 @@
 			children = (
 				20678D901C469EBE00591A0B /* TopUserCell.swift */,
 				20678D941C47B92600591A0B /* UserCell.swift */,
+				200313711C53992200DF14E8 /* UserInfoHeader.swift */,
+				200313731C53F37400DF14E8 /* UserMenu.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -449,17 +455,19 @@
 				2032EE301C51246D00646D8E /* Trend.swift in Sources */,
 				20C794901C42103C005456A0 /* AnswerListModel.swift in Sources */,
 				20762AEA1C2B7B4B0008A00D /* Util.swift in Sources */,
+				200313741C53F37400DF14E8 /* UserMenu.swift in Sources */,
 				20BCFCCD1C416D470006B4CD /* HomeJSONModel.swift in Sources */,
 				20BCFCD31C4173A60006B4CD /* ImageDownloadHelper.swift in Sources */,
 				2003C72C1C4EA9FC00E207FA /* UserDetail.swift in Sources */,
 				20B0ED2C1C2A350400C3DDC5 /* JSONModelMapper.swift in Sources */,
 				2032EE2E1C51213400646D8E /* Star.swift in Sources */,
 				20C3F5E21C43A174007B41E7 /* TopUserViewController.swift in Sources */,
+				200313721C53992200DF14E8 /* UserInfoHeader.swift in Sources */,
 				20678D951C47B92600591A0B /* UserCell.swift in Sources */,
 				20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */,
 				20C794981C425229005456A0 /* ArticleViewController.swift in Sources */,
 				20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */,
-				2003C72A1C4EA96B00E207FA /* UserInfol.swift in Sources */,
+				2003C72A1C4EA96B00E207FA /* UserInfo.swift in Sources */,
 				20DA2A981C29A34700F4E46D /* Constant.swift in Sources */,
 				20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */,
 				20BCFCCB1C416C980006B4CD /* HomeCellModel.swift in Sources */,

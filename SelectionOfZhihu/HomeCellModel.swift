@@ -10,7 +10,7 @@ import Foundation
 
 class HomeCellModel: NSObject {
     var id = 0
-    var date = NSDate()
+    var date = ""
     var name = ""
     var pic = ""
     var publishtime = ""

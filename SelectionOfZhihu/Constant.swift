@@ -19,6 +19,10 @@ struct CellReuseIdentifier {
     static let Answer = "AnswerCell"
     
     static let User = "UserCell"
+    
+    static let UserInfo = "UserInfo"
+    
+    static let UserMenu = "UserMenu"
 }
 
 struct SegueId {

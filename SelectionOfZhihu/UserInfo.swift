@@ -12,7 +12,7 @@ class UserInfo: NSObject {
     var name = ""
     var avatar = ""
     var signature = ""
-    var desc = ""
+    //var desc = ""
     //直接声明成 UserDetail 类型也没用，并不会自动转换成 UserDetail 类型
     var detail: AnyObject!
     var star: AnyObject!

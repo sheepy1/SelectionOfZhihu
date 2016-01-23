@@ -38,8 +38,8 @@ extension Dictionary {
                 switch key {
                 case "userHash":
                     value = self["hash" as! Key]
-                case "desc":
-                    value = self["description" as! Key]
+                //case "desc":
+                    //value = self["description" as! Key]
                 default:
                     break
                 }

@@ -15,17 +15,15 @@ class TopUserViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-//    var jsonModelList = [JSON]() {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         getData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated) 
     }
     
     func getData() {
@@ -35,10 +33,6 @@ class TopUserViewController: UITableViewController {
                     $0 => TopUserModel.self
                 }
             }
-//            if let jsonData = data {
-//                let json = JSON(data: jsonData).dictionaryValue
-//                self.jsonModelList = json["topuser"]!.arrayValue
-//            }
         }
     }
     
