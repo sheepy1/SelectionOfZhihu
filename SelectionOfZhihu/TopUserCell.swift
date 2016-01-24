@@ -32,13 +32,4 @@ class TopUserCell: UITableViewCell, ViewModelType {
         bindModel(model)
     }
     
-//    func bindModel(model: JSON, withIndex index: Int) {
-//        avatarImageView.setImageWithId(index, imagePath: model["avatar"].stringValue)
-//        
-//        nameLabel.text = model["name"].stringValue
-//        
-//        signatureLabel.text = model["signature"].stringValue
-//        
-//        agreeLabel.text = "\(model["agree"].intValue)"
-//    }
 }

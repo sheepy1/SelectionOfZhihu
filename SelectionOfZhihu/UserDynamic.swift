@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Trend: NSObject {
+class UserDynamic: NSObject {
     var date = ""
     var answer = 0
     var agree = 0

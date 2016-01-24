@@ -12,3 +12,8 @@ protocol ViewModelType {
     typealias ModelType
     func bindModel(model: ModelType)
 }
+
+protocol UserMenuDelegate: class {
+    func selectMenuItem(item: UserMenuItem)
+}
+

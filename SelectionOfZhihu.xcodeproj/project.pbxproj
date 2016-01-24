@@ -13,9 +13,11 @@
 		2003C72A1C4EA96B00E207FA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C7291C4EA96B00E207FA /* UserInfo.swift */; };
 		2003C72C1C4EA9FC00E207FA /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003C72B1C4EA9FC00E207FA /* UserDetail.swift */; };
 		2032EE2E1C51213400646D8E /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2D1C51213400646D8E /* Star.swift */; };
-		2032EE301C51246D00646D8E /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2F1C51246D00646D8E /* Trend.swift */; };
+		2032EE301C51246D00646D8E /* UserDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE2F1C51246D00646D8E /* UserDynamic.swift */; };
 		2032EE321C51257200646D8E /* TopAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032EE311C51257200646D8E /* TopAnswer.swift */; };
 		2036DBB11C4B7E2300E1F8C6 /* SortOrderMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */; };
+		206638471C54B36C00AE3213 /* UserDynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206638461C54B36C00AE3213 /* UserDynamicCell.swift */; };
+		206638491C54CF9400AE3213 /* TopAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206638481C54CF9400AE3213 /* TopAnswerCell.swift */; };
 		20678D8E1C469C0F00591A0B /* TopUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D8D1C469C0F00591A0B /* TopUserModel.swift */; };
 		20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D901C469EBE00591A0B /* TopUserCell.swift */; };
 		20678D931C472ACF00591A0B /* UserJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20678D921C472ACF00591A0B /* UserJSONModel.swift */; };
@@ -69,9 +71,11 @@
 		2003C7291C4EA96B00E207FA /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		2003C72B1C4EA9FC00E207FA /* UserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		2032EE2D1C51213400646D8E /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
-		2032EE2F1C51246D00646D8E /* Trend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
+		2032EE2F1C51246D00646D8E /* UserDynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDynamic.swift; sourceTree = "<group>"; };
 		2032EE311C51257200646D8E /* TopAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopAnswer.swift; sourceTree = "<group>"; };
 		2036DBB01C4B7E2300E1F8C6 /* SortOrderMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortOrderMenuController.swift; sourceTree = "<group>"; };
+		206638461C54B36C00AE3213 /* UserDynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDynamicCell.swift; sourceTree = "<group>"; };
+		206638481C54CF9400AE3213 /* TopAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopAnswerCell.swift; sourceTree = "<group>"; };
 		20678D8D1C469C0F00591A0B /* TopUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserModel.swift; sourceTree = "<group>"; };
 		20678D901C469EBE00591A0B /* TopUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopUserCell.swift; sourceTree = "<group>"; };
 		20678D921C472ACF00591A0B /* UserJSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJSONModel.swift; sourceTree = "<group>"; };
@@ -150,7 +154,7 @@
 				2003C7291C4EA96B00E207FA /* UserInfo.swift */,
 				2003C72B1C4EA9FC00E207FA /* UserDetail.swift */,
 				2032EE2D1C51213400646D8E /* Star.swift */,
-				2032EE2F1C51246D00646D8E /* Trend.swift */,
+				2032EE2F1C51246D00646D8E /* UserDynamic.swift */,
 				2032EE311C51257200646D8E /* TopAnswer.swift */,
 			);
 			name = Model;
@@ -163,6 +167,8 @@
 				20678D941C47B92600591A0B /* UserCell.swift */,
 				200313711C53992200DF14E8 /* UserInfoHeader.swift */,
 				200313731C53F37400DF14E8 /* UserMenu.swift */,
+				206638461C54B36C00AE3213 /* UserDynamicCell.swift */,
+				206638481C54CF9400AE3213 /* TopAnswerCell.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -452,7 +458,8 @@
 				20DA2A671C29962C00F4E46D /* AppDelegate.swift in Sources */,
 				20C794921C42111F005456A0 /* AnswerModel.swift in Sources */,
 				2003C7281C4EA41F00E207FA /* UserDetailViewController.swift in Sources */,
-				2032EE301C51246D00646D8E /* Trend.swift in Sources */,
+				206638491C54CF9400AE3213 /* TopAnswerCell.swift in Sources */,
+				2032EE301C51246D00646D8E /* UserDynamic.swift in Sources */,
 				20C794901C42103C005456A0 /* AnswerListModel.swift in Sources */,
 				20762AEA1C2B7B4B0008A00D /* Util.swift in Sources */,
 				200313741C53F37400DF14E8 /* UserMenu.swift in Sources */,
@@ -469,6 +476,7 @@
 				20C7948E1C420FE2005456A0 /* AnswerListViewController.swift in Sources */,
 				2003C72A1C4EA96B00E207FA /* UserInfo.swift in Sources */,
 				20DA2A981C29A34700F4E46D /* Constant.swift in Sources */,
+				206638471C54B36C00AE3213 /* UserDynamicCell.swift in Sources */,
 				20678D911C469EBE00591A0B /* TopUserCell.swift in Sources */,
 				20BCFCCB1C416C980006B4CD /* HomeCellModel.swift in Sources */,
 				20E7D4C41C4AC28000C082BB /* Extension.swift in Sources */,
@@ -613,6 +621,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEPLOYMENT_LOCATION = NO;
 				INFOPLIST_FILE = SelectionOfZhihu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -625,6 +636,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEPLOYMENT_LOCATION = NO;
 				INFOPLIST_FILE = SelectionOfZhihu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

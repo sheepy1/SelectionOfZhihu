@@ -17,5 +17,5 @@ class UserInfo: NSObject {
     var detail: AnyObject!
     var star: AnyObject!
     var trend = []
-    var topanswers: AnyObject!
+    var topanswers = []
 }

@@ -18,6 +18,12 @@ class UserDetailViewController: UIViewController {
     
     @IBOutlet weak var avatarWidth: NSLayoutConstraint!
     
+    typealias CellGetter = (Int) -> UITableViewCell
+    
+    var cellForRow: CellGetter!
+    
+    var cellCount = 0
+    
     var userHash: String! {
         didSet {
             let url = API.UserDetail + userHash
@@ -31,16 +37,38 @@ class UserDetailViewController: UIViewController {
     
     var userInfo: UserInfo! {
         didSet {
-            userDetail = userInfo.detail => UserDetail.self
             tableHeader.bindModel((userInfo.name, userInfo.signature, userDetail.follower, userDetail.agree))
             avatarImageView.setImageWithId(0, imagePath: userInfo.avatar)
+            
+            //默认显示用户动态
+            cellCount = userTimeLine.count
+            cellForRow = dynamicInfoCellForRow
+            tableView.rowHeight = CGFloat(UserMenuItem.Dynamic.rawValue)
+            tableView.reloadData()
         }
     }
     
-    var userDetail: UserDetail! 
-
-    lazy var userMenu: UIView? = {
-        return self.tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.UserMenu)
+    lazy var userDetail: UserDetail! = {
+        return self.userInfo.detail => UserDetail.self
+    }()
+    
+    lazy var userTimeLine: [UserDynamic] = {
+        return self.userInfo.trend.flatMap {
+            $0 => UserDynamic.self
+        }
+    }()
+    
+    lazy var topAnswerList: [TopAnswer] = {
+        return self.userInfo.topanswers.flatMap {
+            $0 => TopAnswer.self
+        }
+    }()
+    
+    lazy var userMenu: UserMenu = {
+        let userMenu = self.tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.UserMenu) as! UserMenu
+        userMenu.addMenuItemTarget()
+        userMenu.delegate = self
+        return userMenu
     }()
     
     lazy var tableHeader: UserInfoHeader = {
@@ -60,7 +88,27 @@ class UserDetailViewController: UIViewController {
         navigationController?.popViewControllerAnimated(true)
     }
     
+    // MARK: - 辅助方法
+    func dynamicInfoCellForRow(row: Int) -> UserDynamicCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.UserDynamic) as! UserDynamicCell
+        
+        cell.bindModel((userInfo.name, userInfo.avatar, userTimeLine[row]))
+        return cell
+    }
     
+    func topAnswerCellForRow(row: Int) -> TopAnswerCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.TopAnswer) as! TopAnswerCell
+        
+        cell.bindModel(topAnswerList[row])
+        return cell
+    }
+    
+    func layoutAvatarImmediately() {
+        avatarHeight.active = true
+        avatarWidth.active = true
+    }
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableHeaderView = tableHeader
@@ -81,12 +129,11 @@ extension UserDetailViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return cellCount
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserInfo")
-        return cell!
+        return cellForRow(indexPath.row)
     }
 }
 
@@ -120,10 +167,25 @@ extension UserDetailViewController: UITableViewDelegate {
         //圆角半径最终减一半
         avatarImageView.cornerRadius = avatarMaxCornerRadius - avatarMaxCornerRadius/2 * multiplier
     }
-    
-    func layoutAvatarImmediately() {
-        avatarHeight.active = true
-        avatarWidth.active = true
+}
+
+// MARK: - UserMenuDelegate
+extension UserDetailViewController: UserMenuDelegate {
+    func selectMenuItem(item: UserMenuItem) {
+        switch item {
+        case .Dynamic:
+            cellCount = userTimeLine.count
+            cellForRow = dynamicInfoCellForRow
+            tableView.separatorStyle = .None
+        case .Answer:
+            cellCount = topAnswerList.count
+            cellForRow = topAnswerCellForRow
+            tableView.separatorStyle = .SingleLine
+        case .More:
+            cellCount = 0
+        }
+        tableView.rowHeight = CGFloat(item.rawValue)
+        tableView.reloadData()
     }
 }
 
