@@ -168,18 +168,18 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		20678D8F1C469EB100591A0B /* ViewModel */ = {
+		20678D8F1C469EB100591A0B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				20678D901C469EBE00591A0B /* TopUserCell.swift */,
 				20678D941C47B92600591A0B /* UserCell.swift */,
 				200313711C53992200DF14E8 /* UserInfoHeader.swift */,
-				200313731C53F37400DF14E8 /* UserMenu.swift */,
 				206638461C54B36C00AE3213 /* UserDynamicCell.swift */,
 				206638481C54CF9400AE3213 /* TopAnswerCell.swift */,
+				200313731C53F37400DF14E8 /* UserMenu.swift */,
 				2017CE871C577B80006A4001 /* SearchedUserCell.swift */,
 			);
-			name = ViewModel;
+			name = View;
 			sourceTree = "<group>";
 		};
 		20B0ED221C2A32DD00C3DDC5 /* Controller */ = {
@@ -225,19 +225,11 @@
 			name = Global;
 			sourceTree = "<group>";
 		};
-		20B0ED2D1C2A354C00C3DDC5 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Framework;
-			path = SelectionOfZhihu;
-			sourceTree = "<group>";
-		};
 		20C3F5E01C43A0CF007B41E7 /* TopUsers */ = {
 			isa = PBXGroup;
 			children = (
 				20678D8B1C469B9400591A0B /* Controller */,
-				20678D8F1C469EB100591A0B /* ViewModel */,
+				20678D8F1C469EB100591A0B /* View */,
 				20678D8C1C469BD800591A0B /* Model */,
 			);
 			name = TopUsers;
@@ -248,7 +240,6 @@
 			children = (
 				20DA2A651C29962C00F4E46D /* SelectionOfZhihu */,
 				20E1F7A01C4163B60086F298 /* Support */,
-				20B0ED2D1C2A354C00C3DDC5 /* Framework */,
 				20DA2A7A1C29962D00F4E46D /* SelectionOfZhihuTests */,
 				20DA2A851C29962D00F4E46D /* SelectionOfZhihuUITests */,
 				20DA2A641C29962C00F4E46D /* Products */,
@@ -309,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				20B0ED221C2A32DD00C3DDC5 /* Controller */,
-				20E1F7A31C41641A0086F298 /* ViewModel */,
+				20E1F7A31C41641A0086F298 /* View */,
 				20B0ED241C2A32F000C3DDC5 /* Model */,
 			);
 			name = Home;
@@ -324,13 +315,13 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
-		20E1F7A31C41641A0086F298 /* ViewModel */ = {
+		20E1F7A31C41641A0086F298 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				20BCFCCE1C416F320006B4CD /* HomeCell.swift */,
 				20C794931C42264C005456A0 /* AnswerCell.swift */,
 			);
-			name = ViewModel;
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
