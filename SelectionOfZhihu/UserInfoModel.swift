@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserInfo: NSObject {
+class UserInfoModel: NSObject {
     var name = ""
     var avatar = ""
     var signature = ""

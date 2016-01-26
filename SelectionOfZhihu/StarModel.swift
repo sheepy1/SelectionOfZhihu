@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Star: NSObject {
+class StarModel: NSObject {
     var answerrank = 0
     var agreerank = 0
     var ratiorank = 0

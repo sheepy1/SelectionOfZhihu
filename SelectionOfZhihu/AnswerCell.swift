@@ -20,19 +20,20 @@ class AnswerCell: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var summaryLabel: UILabel!
     
-    func bindModel(model: AnswerModel) {
-        authorNameLabel.text = model.authorname
-        
-        voteLabel.text = "\(model.vote)"
-        
-        titleLabel.text = model.title
-        
-        summaryLabel.text = model.summary
-    }
+    typealias ModelType = (answer: AnswerModel, index: Int)
     
-    func bindModel(model: AnswerModel, withImageIndex index: Int) {
-        avatarImageView.setImageWithId(index, imagePath: model.avatar)
+    func bindModel(model: ModelType) {
+        let answer = model.answer
+        let index = model.index
         
-        bindModel(model)
+        avatarImageView.setImageWithId(index, imagePath: answer.avatar)
+        
+        authorNameLabel.text = answer.authorname
+        
+        voteLabel.text = "\(answer.vote)"
+        
+        titleLabel.text = answer.title
+        
+        summaryLabel.text = answer.summary
     }
 }

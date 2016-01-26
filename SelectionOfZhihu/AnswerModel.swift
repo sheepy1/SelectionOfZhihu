@@ -17,5 +17,5 @@ class AnswerModel: NSObject {
     var authorname = ""
     var authorhash = ""
     var avatar = ""
-    var vote = 0
+    var vote = ""
 }

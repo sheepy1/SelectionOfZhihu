@@ -8,11 +8,15 @@
 
 import UIKit
 
-class AnswerListViewController: UITableViewController {
+class AnswerListViewController: UITableViewController, Refreshable {
+    
+    let cellHeight = 150 as CGFloat
     
     var url: String! {
         didSet {
             getData()
+            tableView.rowHeight = cellHeight
+            refreshControl = simpleRefreshControl
         }
     }
     
@@ -22,9 +26,12 @@ class AnswerListViewController: UITableViewController {
         }
     }
     
+    var cellCount = 0
+    
     func getData() {
         getDataFromUrl(url, method: .GET, parameter: nil) { data in
             if let d = data, jsonModel = d => AnswerListModel.self {
+                self.cellCount = jsonModel.count
                 self.answerList = jsonModel.answers.flatMap {
                     $0 => AnswerModel.self
                 }
@@ -48,13 +55,13 @@ extension AnswerListViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answerList.count 
+        return cellCount
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.Answer) as! AnswerCell
         let index = indexPath.row
-        cell.bindModel(answerList[index], withImageIndex: index)
+        cell.bindModel((answerList[index], index))
         
         return cell
     }

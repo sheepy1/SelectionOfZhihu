@@ -8,10 +8,10 @@
 
 import Foundation
 
-class TopAnswer: NSObject {
+class TopAnswerModel: NSObject {
     var title = ""
     var link = ""
-    var agree = 0
+    var agree = 0 as Int64
     var date = ""
-    var ispost = false
-}
+    var ispost = ""
+} 

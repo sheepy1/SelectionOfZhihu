@@ -22,7 +22,7 @@ class UserDynamicCell: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var followerLabel: UILabel!
     
-    typealias ModelType = (name: String, avatar: String, dynamicInfo: UserDynamic)
+    typealias ModelType = (name: String, avatar: String, dynamicInfo: UserDynamicModel)
     
     var hasUserInfo = false
     

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class UserDynamic: NSObject {
+class UserDynamicModel: NSObject {
     var date = ""
-    var answer = 0
-    var agree = 0
-    var follower = 0
+    var answer = 0 as Int64
+    var agree = 0 as Int64
+    var follower = 0 as Int64
 }

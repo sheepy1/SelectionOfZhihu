@@ -16,20 +16,30 @@ class TopUserCell: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var signatureLabel: UILabel!
     
-    @IBOutlet weak var agreeLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel!
+   
+    @IBOutlet weak var numberLabel: UILabel!
     
-    func bindModel(model: TopUserModel) {
-        nameLabel.text = model.name
-        
-        signatureLabel.text = model.signature
-        
-        agreeLabel.text = "\(model.agree)"
-    }
+    typealias ModelType = (user: TopUserModel, index: Int)
     
-    func bindModel(model: TopUserModel, withImageIndex index: Int) {
-        avatarImageView.setImageWithId(index, imagePath: model.avatar)
+    func bindModel(model: ModelType) {
+        let user = model.user
+        let index = model.index
         
-        bindModel(model)
+        avatarImageView.setImageWithId(index, imagePath: user.avatar)
+        
+        nameLabel.text = user.name
+        
+        signatureLabel.text = user.signature
+        
+        if user.agree > 0 {
+            numberLabel.text = "\(user.agree)"
+            
+            itemLabel.text = SortOrderItem.Agree.associatedValue.desc
+        } else if user.follower > 0 {
+            numberLabel.text = "\(user.follower)"
+            itemLabel.text = SortOrderItem.Follower.associatedValue.desc
+        }
     }
     
 }

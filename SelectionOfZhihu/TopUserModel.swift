@@ -11,6 +11,8 @@ import Foundation
 class TopUserModel: NSObject {
     var id = ""
     var agree = 0
+    var follower = 0
+    var answer = 0
     var name = ""
     var userHash = ""
     var avatar = ""

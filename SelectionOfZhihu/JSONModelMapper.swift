@@ -41,11 +41,12 @@ extension Dictionary {
                 //case "desc":
                     //value = self["description" as! Key]
                 default:
-                    break
+                    return 
                 }
             } else {
                 value = self[key as! Key]
             }
+            
             model.setValue(value as? AnyObject, forKey: key)
         }
         

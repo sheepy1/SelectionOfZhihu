@@ -9,11 +9,11 @@
 import Foundation
 
 class HomeCellModel: NSObject {
-    var id = 0
+    var id = 0 as Int64
     var date = ""
     var name = ""
     var pic = ""
     var publishtime = ""
-    var count = 0
+    var count = ""
     var excerpt = ""
 }

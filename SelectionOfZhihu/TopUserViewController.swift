@@ -8,27 +8,26 @@
 
 import UIKit
 
-class TopUserViewController: UITableViewController {
+class TopUserViewController: UITableViewController, Refreshable {
+    
+    var url = API.TopUserOrderByAgreeNum {
+        didSet {
+            getData()
+        }
+    }
     
     var cellModelList = [TopUserModel]() {
         didSet {
             tableView.reloadData()
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getData()
-    }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated) 
-    }
+    var cellCount = 0
     
     func getData() {
-        getDataFromUrl(API.TopUser, method: .GET, parameter: nil) { data in
+        getDataFromUrl(url, method: .GET, parameter: nil) { data in
             if let jsonData = data, model = jsonData => UserJSONModel.self {
+                self.cellCount = model.count
                 self.cellModelList = model.topuser.flatMap {
                     $0 => TopUserModel.self
                 }
@@ -37,9 +36,8 @@ class TopUserViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let id = segue.identifier else {
-            return
-        }
+        guard let id = segue.identifier else { return }
+        
         switch id {
         case SegueId.PopoverSortOrderMenu:
             let menuController = segue.destinationViewController
@@ -48,6 +46,9 @@ class TopUserViewController: UITableViewController {
             let userDetailController = segue.destinationViewController as! UserDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow!.row
             userDetailController.userHash = cellModelList[selectedIndex].userHash
+            
+            //确保滑动返回依旧可用
+            navigationController!.interactivePopGestureRecognizer!.delegate = nil;
         default:
             break
         }
@@ -56,8 +57,20 @@ class TopUserViewController: UITableViewController {
     @IBAction func unwindSegueToTopUserPage(segue: UIStoryboardSegue) {
         if let segueId = segue.identifier, case segueId = SegueId.SelectedTableItem {
             let sortOrder = (segue.sourceViewController as! SortOrderMenuController).sortOrder
-            navigationItem.leftBarButtonItem?.title = sortOrder.name
+            navigationItem.leftBarButtonItem?.title = sortOrder.associatedValue.desc
+            url = API.TopUserAPI + sortOrder.associatedValue.keyword
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getData()
+        refreshControl = simpleRefreshControl
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
@@ -68,16 +81,14 @@ extension TopUserViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellModelList.count 
-//        return jsonModelList.count
+        return cellCount
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.User) as! TopUserCell
         let index = indexPath.row
-        cell.bindModel(cellModelList[index], withImageIndex: index)
-    
-//        cell.bindModel(jsonModelList[index], withIndex: index)
+        cell.bindModel((cellModelList[index], index))
+
         return cell
     }
 }

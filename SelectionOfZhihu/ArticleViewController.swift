@@ -17,17 +17,18 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
-    var urlString: String!
     
-    var navigationTitle: String! {
-        didSet {
-            self.navigationItem.title = navigationTitle
-        }
-    }
+    var urlString: String!
     
     //var oldY: CGFloat = 0
     //var newY: CGFloat = 0
     //var scrollDirection: ScrollDirection = .None
+    
+    func loadUrl() {
+        let url = NSURL(string: urlString)
+        let request = NSURLRequest(URL: url!)
+        webView.loadRequest(request)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +36,9 @@ class ArticleViewController: UIViewController {
         loadUrl()
     }
     
-    func loadUrl() {
-        let url = NSURL(string: urlString)
-        let request = NSURLRequest(URL: url!)
-        webView.loadRequest(request)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 

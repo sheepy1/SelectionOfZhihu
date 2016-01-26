@@ -1,5 +1,5 @@
 //
-//  Extension.swift
+//  Protocol.swift
 //  SelectionOfZhihu
 //
 //  Created by 杨洋 on 16/1/17.
@@ -7,6 +7,28 @@
 //
 
 import UIKit
+
+protocol ViewModelType {
+    typealias ModelType
+    func bindModel(model: ModelType)
+}
+
+protocol UserMenuDelegate: class {
+    func selectMenuItem(item: UserMenuItem)
+}
+
+protocol Refreshable: class {
+    func getData()
+    var simpleRefreshControl: SimpleRefreshControl { get }
+}
+
+extension Refreshable {
+    var simpleRefreshControl: SimpleRefreshControl {
+        return SimpleRefreshControl { [weak self] in
+            self?.getData()
+        }
+    }
+}
 
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {

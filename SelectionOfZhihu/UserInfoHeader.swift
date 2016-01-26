@@ -16,7 +16,7 @@ class UserInfoHeader: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var fansAndAgreeLabel: UILabel!
     
-    typealias ModelType = (username: String, signature: String, fans: Int, agree: Int)
+    typealias ModelType = (username: String, signature: String, fans: Int64, agree: Int64)
     
     func bindModel(model: ModelType) {
         usernameLabel.text = model.username

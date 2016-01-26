@@ -17,25 +17,32 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var avatarHeight: NSLayoutConstraint!
     
     @IBOutlet weak var avatarWidth: NSLayoutConstraint!
+  
+    @IBAction func back(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
     
     typealias CellGetter = (Int) -> UITableViewCell
     
+    // 返回具体 cell 的闭包
     var cellForRow: CellGetter!
     
     var cellCount = 0
+    
+    var selectedIndexPath: NSIndexPath!
     
     var userHash: String! {
         didSet {
             let url = API.UserDetail + userHash
             getDataFromUrl(url, method: .GET, parameter: nil) { data in
-                if let jsonData = data, userInfo = jsonData => UserInfo.self {
+                if let jsonData = data, userInfo = jsonData => UserInfoModel.self {
                     self.userInfo = userInfo
                 }
             }
         }
     }
     
-    var userInfo: UserInfo! {
+    var userInfo: UserInfoModel! {
         didSet {
             tableHeader.bindModel((userInfo.name, userInfo.signature, userDetail.follower, userDetail.agree))
             avatarImageView.setImageWithId(0, imagePath: userInfo.avatar)
@@ -48,19 +55,19 @@ class UserDetailViewController: UIViewController {
         }
     }
     
-    lazy var userDetail: UserDetail! = {
-        return self.userInfo.detail => UserDetail.self
+    lazy var userDetail: UserDetailModel! = {
+        return self.userInfo.detail => UserDetailModel.self
     }()
     
-    lazy var userTimeLine: [UserDynamic] = {
+    lazy var userTimeLine: [UserDynamicModel] = {
         return self.userInfo.trend.flatMap {
-            $0 => UserDynamic.self
+            $0 => UserDynamicModel.self
         }
     }()
     
-    lazy var topAnswerList: [TopAnswer] = {
+    lazy var topAnswerList: [TopAnswerModel] = {
         return self.userInfo.topanswers.flatMap {
-            $0 => TopAnswer.self
+            $0 => TopAnswerModel.self
         }
     }()
     
@@ -84,11 +91,6 @@ class UserDetailViewController: UIViewController {
         return self.avatarImageView.cornerRadius
     }()
     
-    @IBAction func back(sender: UIButton) {
-        navigationController?.popViewControllerAnimated(true)
-    }
-    
-    // MARK: - 辅助方法
     func dynamicInfoCellForRow(row: Int) -> UserDynamicCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.UserDynamic) as! UserDynamicCell
         
@@ -108,17 +110,37 @@ class UserDetailViewController: UIViewController {
         avatarWidth.active = true
     }
     
-    // MARK: - Life Cycle
+    func getAnswerUrlWithLink(link: String, isPost: String) -> String {
+        switch isPost {
+        case "1":
+            return API.ZhuanlanHost + link
+        default: 
+            return API.ArticleHost + link
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let answerControlelr = segue.destinationViewController as? ArticleViewController, index = tableView.indexPathForSelectedRow?.row {
+            selectedIndexPath = NSIndexPath(forRow: index, inSection: 0)
+            let answer = topAnswerList[index]
+            answerControlelr.urlString = getAnswerUrlWithLink(answer.link, isPost: answer.ispost)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableHeaderView = tableHeader
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        if let indexPath = selectedIndexPath {
+            tableView.deselectRowAtIndexPath(indexPath, animated: animated)
+        }
     }
-
 }
 
 // MARK: - TableView Data Source
@@ -172,6 +194,8 @@ extension UserDetailViewController: UITableViewDelegate {
 // MARK: - UserMenuDelegate
 extension UserDetailViewController: UserMenuDelegate {
     func selectMenuItem(item: UserMenuItem) {
+        guard userInfo != nil else { return }
+        
         switch item {
         case .Dynamic:
             cellCount = userTimeLine.count
@@ -186,6 +210,10 @@ extension UserDetailViewController: UserMenuDelegate {
         }
         tableView.rowHeight = CGFloat(item.rawValue)
         tableView.reloadData()
+    }
+    
+    func showMoreDetail() {
+        
     }
 }
 

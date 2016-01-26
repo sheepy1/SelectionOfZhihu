@@ -16,7 +16,7 @@ class TopAnswerCell: UITableViewCell, ViewModelType {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    func bindModel(model: TopAnswer) {
+    func bindModel(model: TopAnswerModel) {
         titleLabel.text = model.title
         agreeLabel.text = "\(model.agree)"
         dateLabel.text = model.date

@@ -18,20 +18,19 @@ class HomeCell: UITableViewCell, ViewModelType {
    
     @IBOutlet weak var timeLabel: UILabel!
     
-    let categoryDict = [
-        "archive": "历史精华",
-        "recent": "近日热门",
-        "yesterday": "昨日最新"
-    ]
+    typealias ModelType = (article: HomeCellModel, index: Int)
     
-    func bindModel(model: HomeCellModel) {
-        avatarsImageView.setImageWithId(model.id, imagePath: model.pic)
+    func bindModel(model: ModelType) {
+        let article = model.article
+        let index = model.index
         
-        summaryLabel.text = model.excerpt
+        avatarsImageView.setImageWithId(index, imagePath: article.pic)
         
-        categoryLabel.text = categoryDict[model.name]
+        summaryLabel.text = article.excerpt
+        
+        categoryLabel.text = ArticleCagetory.categoryDict[article.name]
        
-        timeLabel.text = model.date
+        timeLabel.text = article.date
     }
     
 }

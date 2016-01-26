@@ -8,20 +8,26 @@
 
 import UIKit
 
+enum SortOrderItem: Int {
+    case Agree
+    case Follower
+    
+    var associatedValue: (keyword: String, desc: String) {
+        switch self {
+        case .Agree:
+            return ("agree", "赞同数")
+        case .Follower:
+            return ("follower", "粉丝数")
+        }
+    }
+}
+
 class SortOrderMenuController: UITableViewController {
     
-    typealias SortOrder = (name: String, id: String)
-    var sortOrder: SortOrder!
+    var sortOrder: SortOrderItem!
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.row {
-        case 0:
-            sortOrder = ("按赞同数", "agree")
-        case 1:
-            sortOrder = ("按粉丝数", "follow")
-        default:
-            break
-        }
+        sortOrder = SortOrderItem(rawValue: indexPath.row)
         performSegueWithIdentifier(SegueId.SelectedTableItem, sender: nil)
     }
 }
