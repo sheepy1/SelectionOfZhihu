@@ -22,13 +22,6 @@ class UserDetailViewController: UIViewController {
         navigationController?.popViewControllerAnimated(true)
     }
     
-    typealias CellGetter = (Int) -> UITableViewCell
-    
-    // 返回具体 cell 的闭包
-    var cellForRow: CellGetter!
-    
-    var cellCount = 0
-    
     var selectedIndexPath: NSIndexPath!
     
     var userHash: String! {
@@ -48,18 +41,31 @@ class UserDetailViewController: UIViewController {
             avatarImageView.setImageWithId(0, imagePath: userInfo.avatar)
             
             //默认显示用户动态
-            cellCount = userTimeLine.count
-            cellForRow = dynamicInfoCellForRow
+            tableView.dataSource = userDynamicDataSource
             tableView.rowHeight = CGFloat(UserMenuItem.Dynamic.rawValue)
             tableView.reloadData()
         }
     }
     
+    lazy var userDynamicDataSource: UserDynamicDataSource = {
+        let dataSource = UserDynamicDataSource()
+        dataSource.userDynamicList = self.userDynamicList
+        dataSource.name = self.userInfo.name
+        dataSource.avatar = self.userInfo.avatar
+        return dataSource
+    }()
+    
+    lazy var topAnswerDataSource: TopAnswerDataSource = {
+        let dataSource = TopAnswerDataSource()
+        dataSource.topAnswerList = self.topAnswerList
+        return dataSource
+    }()
+    
     lazy var userDetail: UserDetailModel! = {
         return self.userInfo.detail => UserDetailModel.self
     }()
     
-    lazy var userTimeLine: [UserDynamicModel] = {
+    lazy var userDynamicList: [UserDynamicModel] = {
         return self.userInfo.trend.flatMap {
             $0 => UserDynamicModel.self
         }
@@ -91,30 +97,11 @@ class UserDetailViewController: UIViewController {
         return self.avatarImageView.cornerRadius
     }()
     
-    func dynamicInfoCellForRow(row: Int) -> UserDynamicCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.UserDynamic) as! UserDynamicCell
-        
-        cell.bindModel((userInfo.name, userInfo.avatar, userTimeLine[row]))
-        return cell
-    }
-    
-    func topAnswerCellForRow(row: Int) -> TopAnswerCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier.TopAnswer) as! TopAnswerCell
-        
-        cell.bindModel(topAnswerList[row])
-        return cell
-    }
-    
-    func layoutAvatarImmediately() {
-        avatarHeight.active = true
-        avatarWidth.active = true
-    }
-    
     func getAnswerUrlWithLink(link: String, isPost: String) -> String {
         switch isPost {
         case "1":
             return API.ZhuanlanHost + link
-        default: 
+        default:
             return API.ArticleHost + link
         }
     }
@@ -140,22 +127,6 @@ class UserDetailViewController: UIViewController {
         if let indexPath = selectedIndexPath {
             tableView.deselectRowAtIndexPath(indexPath, animated: animated)
         }
-    }
-}
-
-// MARK: - TableView Data Source
-extension UserDetailViewController: UITableViewDataSource {
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellCount
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return cellForRow(indexPath.row)
     }
 }
 
@@ -189,6 +160,11 @@ extension UserDetailViewController: UITableViewDelegate {
         //圆角半径最终减一半
         avatarImageView.cornerRadius = avatarMaxCornerRadius - avatarMaxCornerRadius/2 * multiplier
     }
+    
+    func layoutAvatarImmediately() {
+        avatarHeight.active = true
+        avatarWidth.active = true
+    }
 }
 
 // MARK: - UserMenuDelegate
@@ -198,22 +174,16 @@ extension UserDetailViewController: UserMenuDelegate {
         
         switch item {
         case .Dynamic:
-            cellCount = userTimeLine.count
-            cellForRow = dynamicInfoCellForRow
+            tableView.dataSource = userDynamicDataSource
             tableView.separatorStyle = .None
         case .Answer:
-            cellCount = topAnswerList.count
-            cellForRow = topAnswerCellForRow
+            tableView.dataSource = topAnswerDataSource
             tableView.separatorStyle = .SingleLine
         case .More:
-            cellCount = 0
+            break
         }
         tableView.rowHeight = CGFloat(item.rawValue)
         tableView.reloadData()
-    }
-    
-    func showMoreDetail() {
-        
     }
 }
 
