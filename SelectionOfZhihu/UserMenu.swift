@@ -60,3 +60,4 @@ class UserMenu: UITableViewCell {
     }
 
 }
+
